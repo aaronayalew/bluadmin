@@ -45,10 +45,11 @@ class InstallController extends Controller
 
     public function purchase_code(Request $request)
     {
-        Helpers::setEnvironmentValue('SOFTWARE_ID', 'MzM1NzE3NTA=');
-        Helpers::setEnvironmentValue('BUYER_USERNAME', $request['username']);
-        Helpers::setEnvironmentValue('PURCHASE_CODE', $request['purchase_key']);
-        return redirect()->route('dmvf', ['purchase_key' => $request['purchase_key'], 'username' => $request['username']]);
+        return view('installation.step3');
+        // Helpers::setEnvironmentValue('SOFTWARE_ID', 'MzM1NzE3NTA=');
+        // Helpers::setEnvironmentValue('BUYER_USERNAME', $request['username']);
+        // Helpers::setEnvironmentValue('PURCHASE_CODE', $request['purchase_key']);
+        // return redirect()->route('dmvf', ['purchase_key' => $request['purchase_key'], 'username' => $request['username']]);
     }
 
     public function system_settings(Request $request)
