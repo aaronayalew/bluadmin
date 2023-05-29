@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Nexmo\Laravel\Facade\Nexmo;
 use Twilio\Rest\Client;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\DB;
 
 
 class SMS_module
@@ -40,6 +41,7 @@ class SMS_module
         //     return $response;
         // }
         $response = Http::get("https://api.afromessage.com/api/send?from=e80ad9d8-adf3-463f-80f4-7c4b39f7f164&to=$receiver&message=Your otp is $otp");
+        Log::error($response->status()->toString());
         return "success";
     }
 
