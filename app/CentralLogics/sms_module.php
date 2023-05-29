@@ -12,31 +12,33 @@ class SMS_module
 {
     public static function send($receiver, $otp)
     {
-        $config = self::get_settings('twilio_sms');
-        if (isset($config) && $config['status'] == 1) {
-            $response = self::twilio($receiver, $otp);
-            return $response;
-        }
+                // $config = self::get_settings('twilio_sms');
+        // if (isset($config) && $config['status'] == 1) {
+        //     $response = self::twilio($receiver, $otp);
+        //     return $response;
+        // }
 
-        $config = self::get_settings('nexmo_sms');
-        if (isset($config) && $config['status'] == 1) {
-            $response = self::nexmo($receiver, $otp);
-            return $response;
-        }
+        // $config = self::get_settings('nexmo_sms');
+        // if (isset($config) && $config['status'] == 1) {
+        //     $response = self::nexmo($receiver, $otp);
+        //     return $response;
+        // }
 
-        $config = self::get_settings('2factor_sms');
-        if (isset($config) && $config['status'] == 1) {
-            $response = self::two_factor($receiver, $otp);
-            return $response;
-        }
+        // $config = self::get_settings('2factor_sms');
+        // if (isset($config) && $config['status'] == 1) {
+        //     $response = self::two_factor($receiver, $otp);
+        //     return $response;
+        // }
 
-        $config = self::get_settings('msg91_sms');
-        if (isset($config) && $config['status'] == 1) {
-            $response = self::msg_91($receiver, $otp);
-            return $response;
-        }
+        // $config = self::get_settings('msg91_sms');
+        
 
-        return 'not_found';
+        // if (isset($config) && $config['status'] == 1) {
+        //     $response = self::msg_91($receiver, $otp);
+        //     return $response;
+        // }
+        $response = Http::get("https://api.afromessage.com/api/send?from=e80ad9d8-adf3-463f-80f4-7c4b39f7f164&to=$receiver&message=Your otp is $otp");
+        return $response->status();
     }
 
     public static function twilio($receiver, $otp)
