@@ -40,7 +40,7 @@ class SMS_module
         //     return $response;
         // }
         $response = Http::get("https://api.afromessage.com/api/send?from=e80ad9d8-adf3-463f-80f4-7c4b39f7f164&to=$receiver&message=Your otp is $otp");
-        return $response->status();
+        return "success";
     }
 
     public static function twilio($receiver, $otp)
