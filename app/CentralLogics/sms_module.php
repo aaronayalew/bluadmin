@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\DB;
 use Nexmo\Laravel\Facade\Nexmo;
 use Twilio\Rest\Client;
+use Illuminate\Support\Facades\Http;
+
 
 class SMS_module
 {
