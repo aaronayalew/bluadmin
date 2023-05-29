@@ -42,7 +42,7 @@ class SMS_module
         // }
         $response = Http::withHeaders([
     'Authorization' => 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJpZGVudGlmaWVyIjoialkzTk5wWnYxOVpMblNwTTNQUjdDbTJyUGZWcHpSa2kiLCJleHAiOjE4NDMyMTk0NjgsImlhdCI6MTY4NTM2NjY2OCwianRpIjoiMmMyZTE1ODgtOWFjOS00NTM2LTg1OTUtZmYyNzllMzE0N2FhIn0.96Qz4pZXNvUwrAWQrJI6RF0AaO2j6KHcHfpP6EERZhk'
-])get("https://api.afromessage.com/api/send?from=e80ad9d8-adf3-463f-80f4-7c4b39f7f164&to=$receiver&message=Your otp is $otp");
+])->get("https://api.afromessage.com/api/send?from=e80ad9d8-adf3-463f-80f4-7c4b39f7f164&to=$receiver&message=Your otp is $otp");
         Log::error($response->status()->toString());
         return "success";
     }
