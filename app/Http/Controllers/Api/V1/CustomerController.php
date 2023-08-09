@@ -9,6 +9,8 @@ use App\Models\Order;
 use App\Models\Food;
 use App\Models\OrderDetail;
 use App\Models\User;
+use App\CPU\ImageManager;
+
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
@@ -262,5 +264,18 @@ class CustomerController extends Controller
         })->limit(5)->get();
         $products = Helpers::product_data_formatting($products, true);
         return response()->json($products, 200);
+    }
+
+    public function account_delete(Request $request, $id)
+    {
+        if($request->user()->id == $id)
+        {
+            $user = User::find($id);
+            $user->delete();
+            return response()->json(['message' => translate('Your_account_deleted_successfully!!')],200);
+            
+        }else{
+            return response()->json(['message' =>'access_denied!!'],403);
+        }
     }
 }
