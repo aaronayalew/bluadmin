@@ -272,10 +272,10 @@ class CustomerController extends Controller
         {
             $user = User::find($id);
             $user->delete();
-            return response()->json(['message' => translate('Your_account_deleted_successfully!!')],200);
+            return response()->json(['message' => 'Your_account_deleted_successfully!'],200);
             
         }else{
-            return response()->json(['message' =>'access_denied!!'],403);
+            return response()->json(['message' =>'access_denied!'],403);
         }
     }
 }
