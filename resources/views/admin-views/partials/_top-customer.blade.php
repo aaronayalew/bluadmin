@@ -17,6 +17,7 @@
 <div class="card-body">
     <div class="row">
         @foreach($top_customer as $key=>$item)
+             @if(isset($item->customer))
             <div class="col-6 col-md-4 mt-2"
                  onclick="location.href='{{route('admin.customer.view',[$item['user_id']])}}'"
                  style="padding-left: 6px;padding-right: 6px;cursor: pointer">
@@ -33,6 +34,7 @@
                     </div>
                 </div>
             </div>
+            @endif
         @endforeach
     </div>
 </div>
